@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+
+double hitungIMT(double berat, double tinggi) {
+    double tinggiMeter = tinggi / 100.0;
+    return berat / (tinggiMeter * tinggiMeter);
+}
+
+string kategoriIMT(double imt) {
+    if (imt < 18.5)
+        return "Kurus";
+    else if (imt >= 18.5 && imt < 24.9)
+        return "Normal";
+    else if (imt >= 25 && imt < 29.9)
+        return "Gemuk";
+    else
+        return "Obesitas";
+}
+
+int main() {
+    double berat, tinggi, imt;
+    cout << "Masukkan berat badan (kg): ";
+    cin >> berat;
+    cout << "Masukkan tinggi badan (cm): ";
+    cin >> tinggi;
+
+    imt = hitungIMT(berat, tinggi);
+    cout << "IMT Anda adalah " << imt << " dan Anda termasuk dalam kategori " << kategoriIMT(imt) << "." << endl;
+
+    return 0;
+}
