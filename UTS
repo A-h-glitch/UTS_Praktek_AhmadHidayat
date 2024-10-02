@@ -1,0 +1,61 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+// Fungsi untuk menghitung nilai akhir
+double hitungNilaiAkhir(double absen, double tugas, double uts, double uas) {
+    return (absen * 0.10) + (tugas * 0.20) + (uts * 0.30) + (uas * 0.40);
+}
+
+// Fungsi untuk menentukan huruf mutu berdasarkan nilai akhir
+char tentukanHurufMutu(double nilaiAkhir) {
+    if (nilaiAkhir >= 85 && nilaiAkhir < 100)
+        return 'A';
+    else if (nilaiAkhir >= 80 && nilaiAkhir < 85)
+        return 'B';
+    else if (nilaiAkhir >= 75 && nilaiAkhir < 80)
+        return 'C';
+    else if (nilaiAkhir >= 70 && nilaiAkhir < 75)
+        return 'D';
+    else
+        return 'E';
+}
+
+int main() {
+    // Variabel untuk menyimpan input
+    string nama, npm;
+    double absen, tugas, uts, uas;
+
+    // Input dari pengguna
+    cout << "Masukkan nama mahasiswa: ";
+    getline(cin, nama);
+    cout << "Masukkan NPM mahasiswa: ";
+    getline(cin, npm);
+    cout << "Masukkan nilai absen (0-100): ";
+    cin >> absen;
+    cout << "Masukkan nilai tugas (0-100): ";
+    cin >> tugas;
+    cout << "Masukkan nilai UTS (0-100): ";
+    cin >> uts;
+    cout << "Masukkan nilai UAS (0-100): ";
+    cin >> uas;
+
+    // Menghitung nilai akhir
+    double nilaiAkhir = hitungNilaiAkhir(absen, tugas, uts, uas);
+
+    // Menentukan huruf mutu
+    char hurufMutu = tentukanHurufMutu(nilaiAkhir);
+
+    // Menampilkan hasil
+    cout << "\n===== Hasil Akhir =====" << endl;
+    cout << "Nama: " << nama << endl;
+    cout << "NPM: " << npm << endl;
+    cout << "Nilai Absen: " << absen << endl;
+    cout << "Nilai Tugas: " << tugas << endl;
+    cout << "Nilai UTS: " << uts << endl;
+    cout << "Nilai UAS: " << uas << endl;
+    cout << "Nilai Akhir: " << nilaiAkhir << endl;
+    cout << "Huruf Mutu: " << hurufMutu << endl;
+
+    return 0;
+}
